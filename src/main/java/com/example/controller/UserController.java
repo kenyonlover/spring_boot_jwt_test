@@ -34,6 +34,7 @@ public class UserController {
                 String token = tokenService.getToken(userForBase);
                 jsonObject.put("token", token);
                 jsonObject.put("user", userForBase);
+                jsonObject.put("status", 200);
                 return jsonObject;
             }
         }
