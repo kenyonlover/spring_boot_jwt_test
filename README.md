@@ -1,6 +1,6 @@
-##JWT实现token认证
+## JWT实现token认证
 
-###1. 实现跳过认证（PassToken）及需要认证（UserLoginToken）的注解类
+### 1. 实现跳过认证（PassToken）及需要认证（UserLoginToken）的注解类
 ```
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
@@ -16,7 +16,7 @@ public @interface UserLoginToken {
 }
 ```
 
-###2. 实现获取Token类（TokenService）
+### 2. 实现获取Token类（TokenService）
 ```
 @Service
 public class TokenService {
@@ -34,7 +34,7 @@ public class TokenService {
 }
 ```
 
-###3. 实现token认证类（AuthenticationInterceptor）
+### 3. 实现token认证类（AuthenticationInterceptor）
 ```
 public class AuthenticationInterceptor implements HandlerInterceptor {
     @Autowired
@@ -102,7 +102,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 }
 ```
 
-###4. 因为需要抛出异常，实现一个全局异常捕获类（）
+### 4. 因为需要抛出异常，实现一个全局异常捕获类（）
 ```
 @ControllerAdvice
 public class GloablExceptionHandler {
@@ -121,7 +121,7 @@ public class GloablExceptionHandler {
 }
 ```
 
-5. 添加配置类（InterceptorConfig），让所有的映射路径都进行验证
+### 5. 添加配置类（InterceptorConfig），让所有的映射路径都进行验证
 ```
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
@@ -138,7 +138,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 }
 ```
 
-###6. 实现访问类（UserController）
+### 6. 实现访问类（UserController）
 ```
 @RestController
 @RequestMapping("/api")
@@ -179,11 +179,11 @@ public class UserController {
 }
 ```
 
-###7. 进行postman访问
+### 7. 进行postman访问
     * http://127.0.0.1:8080/api/login
     * http://127.0.0.1:8080/api/getMessage
 
-##github项目源码地址
+## github项目源码地址
 ```
 https://github.com/kenyonlover/spring_boot_jwt_test
 ```
